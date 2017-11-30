@@ -1,4 +1,6 @@
-﻿
+﻿@using Juliusz_Final.Models
+@model IEnumerable<Juliusz_Final.Models.Rent>
+
 <div align="center">
     <nav style="padding: 7px" class="bg-dark text-white">
         <a class="navbar-brand">Wypożyczenia</a>
@@ -11,7 +13,52 @@
             <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Index", "Home", FormMethod.Get)" class="btn btn-primary">Strona główna</a>
         </div>
         <div class="float-right">
-            <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Add", "Rent", FormMethod.Get)" class="btn btn-primary">Dodaj zamówienie</a>
+            <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Add", "Rent", FormMethod.Get)" class="btn btn-primary">Dodaj wypożyczenie</a>
         </div>
     </div>
 </div>
+<table class="table table-hover">
+    <tr>
+        <th>Customer ID</th>
+        <th>Customer Name</th>
+        <th>Rent Date</th>
+        <th>Ważność</th>
+        <th>Data oddania</th>
+        <th>Typ produktu</th>
+        <th>Model</th>
+        <th>ID produktu</th>
+    </tr>
+        @foreach (var rent in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x => rent.CustomerID)</td>
+                <td>@Html.DisplayFor(x => rent.Customer.Name)</td>
+                <td>@Html.DisplayFor(x => rent.RentDate)</td>
+                @{
+                    if (rent.ExpirationDate != null)
+                    {
+                        DateTime expDate = (DateTime)rent.ExpirationDate;
+                        <td>@Html.DisplayFor(x => expDate)</td>
+                    }
+                    else
+                    {
+                        <td>@Html.Display("Brak")</td>
+                    }
+                }
+                @{
+                    if (rent.ReturnDate != null)
+                    {
+                        DateTime retDate = (DateTime)rent.ReturnDate;
+                        <td>@Html.DisplayFor(x => retDate)</td>
+                    }
+                    else
+                    {
+                        <td>BRAK ZWROTU</td>
+                    }
+                }
+                <td>@Html.DisplayFor(x => rent.Item.Category.Type)</td>
+                <td>@Html.DisplayFor(x => rent.Item.Model)</td>
+                <td>@Html.DisplayFor(x => rent.ItemId)</td>
+            </tr>
+        }
+</table>

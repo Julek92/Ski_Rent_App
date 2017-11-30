@@ -15,6 +15,8 @@ namespace Juliusz_Final.Models
 
         public int? Height { get; set; }
         public int? Skill { get; set; }
+
+        [DataType(DataType.DateTime)]
         public DateTime? BirthDate { get; set; }
 
         public ICollection<Rent> Rents { get; set; }
