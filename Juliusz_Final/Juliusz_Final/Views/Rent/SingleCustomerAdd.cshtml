@@ -1,4 +1,5 @@
-﻿@model Juliusz_Final.Models.Rent
+﻿@using Juliusz_Final.Models
+@model Juliusz_Final.Models.Rent
 
 <div align="center">
     <nav style="padding: 7px" class="bg-dark text-white">
@@ -18,12 +19,17 @@
         </div>
     </div>
 
-    @using (Html.BeginForm("Add", "Rent", FormMethod.Post))
+    @using (Html.BeginForm("SingleCustomerAdd", "Rent", FormMethod.Post))
     {
+        var customer = (Customer) ViewBag.customer;
+        int customerid = customer.ID;
         <div class="form-group">
-            @Html.Label("Wybierz użytkownika: ")
+            <p>
+            @Html.Label("Użytkownik: \n")
+            @Html.Label($"{customer.Name}, id: {customer.ID}")
+            </p>
             <div>
-                @Html.DropDownListFor(x => x.CustomerID, (IEnumerable<SelectListItem>)ViewBag.CustomersList)
+                @Html.Hidden("idCustomer", customerid)
             </div>
         </div>
 

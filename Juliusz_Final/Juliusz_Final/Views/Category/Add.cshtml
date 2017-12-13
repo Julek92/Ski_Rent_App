@@ -6,33 +6,35 @@
     </nav>
 </div>
 
-<div class="row">
-    <div class="col">
-        <div class="float-left">
-            <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Index", "Home", FormMethod.Get)" class="btn btn-primary">Strona główna</a>
-        </div>
-        <div class="float-right">
-            <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Index", "Category", FormMethod.Get)" class="btn bg-warning">Powrót</a>
+<div style="margin: 10%; margin-top: 10px">
+    <div class="row">
+        <div class="col">
+            <div class="float-left">
+                <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Index", "Home", FormMethod.Get)" class="btn btn-primary">Strona główna</a>
+            </div>
+            <div class="float-right">
+                <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Index", "Category", FormMethod.Get)" class="btn bg-warning">Powrót</a>
+            </div>
         </div>
     </div>
+
+    @using (Html.BeginForm("Add", "Category", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.Type)
+            <div>
+                @Html.TextBoxFor(x => x.Type)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.RentDivider)
+            <div>
+                @Html.TextBoxFor(x => x.RentDivider)
+            </div>
+        </div>
+
+        <button class="btn btn-primary">Potwierdź</button>
+    }
+    @Html.ValidationSummary()
 </div>
-
-@using (Html.BeginForm("Add", "Category", FormMethod.Post))
-{
-    <div class="form-group">
-        @Html.LabelFor(x => x.Type)
-        <div>
-            @Html.TextBoxFor(x => x.Type)
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(x => x.RentDivider)
-        <div>
-            @Html.TextBoxFor(x => x.RentDivider)
-        </div>
-    </div>
-
-    <button class="btn btn-primary">Confirm</button>
-}
-@Html.ValidationSummary()

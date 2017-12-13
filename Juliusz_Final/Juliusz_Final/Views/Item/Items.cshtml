@@ -6,36 +6,38 @@
     </nav>
 </div>
 
-<div class="float-left">
-    <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Index", "Home", FormMethod.Get)" class="btn btn-primary">Strona główna</a>
-</div>
-<div class="float-right">
-    <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Add", "Item", FormMethod.Get)" cla class="btn btn-primary">Dodaj Produkt</a>
-</div>
+<div style="margin: 10%; margin-top: 10px">
+    <div class="float-left">
+        <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Index", "Home", FormMethod.Get)" class="btn btn-primary">Strona główna</a>
+    </div>
+    <div class="float-right">
+        <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Add", "Item", FormMethod.Get)" cla class="btn bg-warning">Dodaj Produkt</a>
+    </div>
 
-<table class="table table-hover">
-    <tr>
-        <th>ID</th>
-        <th>CategoryID</th>
-        <th>Model</th>
-        <th>Value</th>
-        <th>Condition</th>
-        <th>Size</th>
-        <th>Options</th>
-    </tr>
-    @foreach (var item in Model)
-    {
+    <table class="table table-hover">
         <tr>
-            <td>@Html.DisplayFor(x => item.ID)</td>
-            <td>@Html.DisplayFor(x => item.CategoryID)</td>
-            <td>@Html.DisplayFor(x => item.Model)</td>
-            <td>@Html.DisplayFor(x => item.Value)</td>
-            <td>@Html.DisplayFor(x => item.Condition)</td>
-            <td>@Html.DisplayFor(x => item.Size)</td>
-            <td>
-                <a class="btn btn-primary" href="@Url.Action("Edit", new {id = item.ID})">Edit</a>
-                <a class="btn btn-primary" href="@Url.Action("Remove", new {id = item.ID})">Remove</a>
-            </td>
+            <th>Nr</th>
+            <th>Kategoria</th>
+            <th>Model</th>
+            <th>Wartość</th>
+            <th>Stan</th>
+            <th>Rozmiar</th>
+            <th>Opcje</th>
         </tr>
-    }
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x => item.ID)</td>
+                <td>@Html.DisplayFor(x => item.Category.Type)</td>
+                <td>@Html.DisplayFor(x => item.Model)</td>
+                <td>@Html.DisplayFor(x => item.Value)</td>
+                <td>@Html.DisplayFor(x => item.Condition)</td>
+                <td>@Html.DisplayFor(x => item.Size)</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("Edit", new {id = item.ID})">Edytuj</a>
+                    <a class="btn btn-primary" href="@Url.Action("Remove", new {id = item.ID})">Usuń</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

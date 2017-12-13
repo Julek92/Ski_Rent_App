@@ -6,30 +6,32 @@
     </nav>
 </div>
 
-<div class="row">
-    <div class="col">
-        <div class="float-left">
-            <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Index", "Home", FormMethod.Get)" class="btn btn-primary">Strona główna</a>
-        </div>
-        <div class="float-right">
-            <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Index", "Category", FormMethod.Get)" class="btn bg-warning">Powrót</a>
+<div style="margin: 10%; margin-top: 10px">
+    <div class="row">
+        <div class="col">
+            <div class="float-left">
+                <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Index", "Home", FormMethod.Get)" class="btn btn-primary">Strona główna</a>
+            </div>
+            <div class="float-right">
+                <a style="margin: 5px; padding: 10px; padding-left: 50px; padding-right: 50px" href="@Url.Action("Index", "Category", FormMethod.Get)" class="btn bg-warning">Powrót</a>
+            </div>
         </div>
     </div>
-</div>
-<h3>Czy chcesz usunąć tą kategorię?</h3>
-<div style="width: 50%">
-    <table class="table table-hover">
-        <tr>
-            <th>Type</th>
-            <th>ID</th>
-        </tr>
-        <tr>
-            <td>@Html.DisplayFor(x => x.Type)</td>
-            <td>@Html.DisplayFor(x => x.ID)</td>
-        </tr>
-    </table>
-    @using (Html.BeginForm("ConfirmRemove", "Category", new { id = Model.ID }, FormMethod.Post))
-    {
-        <button style="padding: 15px; padding-left: 30%; padding-right: 30%" class="btn btn-danger">Usuń</button>
-    }
+    <h3>Czy chcesz usunąć tą kategorię?</h3>
+    <div style="width: 50%">
+        <table class="table table-hover">
+            <tr>
+                <th>Typ</th>
+                <th>ID</th>
+            </tr>
+            <tr>
+                <td>@Html.DisplayFor(x => x.Type)</td>
+                <td>@Html.DisplayFor(x => x.ID)</td>
+            </tr>
+        </table>
+        @using (Html.BeginForm("ConfirmRemove", "Category", new { id = Model.ID }, FormMethod.Post))
+        {
+            <button style="padding: 15px; padding-left: 30%; padding-right: 30%" class="btn btn-danger">Usuń</button>
+        }
+    </div>
 </div>

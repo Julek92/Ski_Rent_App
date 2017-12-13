@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Juliusz_Final.Context;
 using Juliusz_Final.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Juliusz_Final.Controllers
@@ -20,7 +21,7 @@ namespace Juliusz_Final.Controllers
 
         public IActionResult Index()
         {
-            var categories = _context.Categories.ToList();
+            var categories = _context.Categories.Include(x => x.Items).ToList();
             return View("Categories", categories);
         }
 
