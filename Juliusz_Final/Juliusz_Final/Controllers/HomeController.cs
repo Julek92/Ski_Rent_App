@@ -11,7 +11,8 @@ namespace Juliusz_Final.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            string Time = DateTime.Now.ToString("F");
+            return View("Index", Time);
         }
 
     }

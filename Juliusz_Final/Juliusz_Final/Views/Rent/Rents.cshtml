@@ -62,6 +62,24 @@
                         if (rent.ReturnDate == null)
                         {
                             <a class="btn btn-primary" href="@Url.Action("ReturnProduct", new {id = rent.ID,})">ZWROT</a>
+                            if (rent.ExpirationDate != null)
+                            {
+                                if (DateTime.Now > rent.ExpirationDate)
+                                {
+                                    <a class="btn btn-danger">SPÓŹNIENIE</a>
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            if (rent.ExpirationDate != null)
+                            {
+                                if (rent.ReturnDate > rent.ExpirationDate)
+                                {
+                                    <a class="btn btn-danger">SPÓŹNIENIE</a>
+                                }
+                            }
                         }
                     }
                 </td>

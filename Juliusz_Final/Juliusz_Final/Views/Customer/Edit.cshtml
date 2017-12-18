@@ -29,28 +29,28 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(x => x.Name)
+            @Html.Label("Imię i nazwisko:")
             <div>
                 @Html.TextBoxFor(x => x.Name)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(x => x.BirthDate)
+            @Html.Label("Data urodzenia [YYYY-MM-DD]:")
             <div>
                 @Html.TextBoxFor(x => x.BirthDate)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(x => x.Height)
+            @Html.Label("Wzrost [cm]:")
             <div class="col-18">
                 @Html.TextBoxFor(x => x.Height)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(x => x.Skill)
+            @Html.Label("Poziom umiejętności (1-5):")
             <div>
                 @Html.TextBoxFor(x => x.Skill)
             </div>
