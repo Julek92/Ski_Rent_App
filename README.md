@@ -9,3 +9,9 @@ Technologies used:
 - JavaScript and jQuery (in progress...)
 
 It's application for administrators, where You can manage Your Ski Rental.
+
+Screenshots:
+* [Screenshot 1]() - 
+* [Screenshot 2]() - 
+* [Screenshot 3]() - 
+* [Screenshot 4]() - 
